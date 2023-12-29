@@ -1,0 +1,124 @@
+/* ----- GLOBAL SETTINGS ----- */
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap');
+
+
+*, 
+*::before,
+*::after{
+  padding: 3vh 4vw;
+  margin: 0;
+  box-sizing: border-box;
+}
+body{
+    overflow-x: hidden;
+    font-family: "Nunito", sans-serif;
+    background-color: var(--light);
+}
+html{
+    scroll-behavior: smooth;
+}
+img{
+    width: 100%;
+}
+a{
+    text-decoration: none;
+}
+
+main{
+    width: 100vw;
+}
+/* Color Pallette */
+
+:root{
+    --yellow: #ffe460;
+    --orange: #f7a43e;
+    --dark: #191818;
+    --grey: #222222;
+    --light: #f7f6e6;
+    
+    --gradient1: linear-gradient(to left, var(--yellow) 20%, var(--orange) 80%);
+    --gradient2: linear-gradient(to left, var(--orange) 20%, var(--yellow) 80%);
+
+    --shadow: 5px 5px 20px rgba(70, 80, 80, 0.3);
+}
+
+
+/* BUTTONS STYLINGS */
+
+.btn, .btn1, .btn2{
+    width: 84vw;
+    height: 8vh;
+    border-radius: 8px;
+    margin: 4vh 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+.btn1, .btn2{
+    margin-top: 4vh;
+}
+
+/* Button */
+
+.btn{
+    background-image: var(--gradient1);
+    color: var(--light);
+}
+.btn:hover{
+    background-image: var(--gradient2);
+}
+
+/* Button 1 */
+
+.btn1{
+    border-style: solid;
+    border-color: var(--light);
+
+    color: var(--dark);
+    background-color: var(--yellow);
+}
+.btn1:hover{
+    background-color: var(--orange);
+}
+
+/* Button 2 */
+
+.btn2{
+    border-style: solid;
+    border-color: var(--orange);
+
+    color: var(--orange);
+    background-color: transparent;
+}
+.btn2:hover{
+    background-color: var(--orange);
+    color: var(--light);
+}
+
+/* LOGIN PAGE */
+
+#login body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#login input{
+    height: 9vh;
+    width: 84vw;
+    outline: none;
+    margin: 0.5vh 0;
+    padding-left: 15px;
+    border-radius: 8px;
+    border: 2px solid var(--light);
+    font-size: 18px;
+    font-family: "Nunito", sans-serif;
+    transition: all 0.3s ease;
+}
+#login input:focus {
+    border-color: var(--yellow);
+}

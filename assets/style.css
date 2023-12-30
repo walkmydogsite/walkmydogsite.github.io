@@ -35,6 +35,7 @@ div{
 .spacer{
     height: 10vh;
     width: 100vw;
+    transform: translateX(-9vw);
 }
 
 /* Color Pallette */

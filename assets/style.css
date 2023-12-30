@@ -129,6 +129,7 @@ input{
     font-size: 18px;
     font-family: "Nunito", sans-serif;
     transition: all 0.3s ease;
+    color: white;
 }
 input:focus {
     border-color: var(--blue);
@@ -142,8 +143,9 @@ select{
     margin: 0.5vh 0;
     padding-left: 15px;
     border-radius: 8px;
-    border: 2px solid var(--light);
+    border: 2px solid var(--white);
     font-size: 18px;
+    color: white;
     font-family: "Nunito", sans-serif;
     transition: all 0.3s ease;
 }

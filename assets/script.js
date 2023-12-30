@@ -218,17 +218,3 @@ function getRandomItem(items) {
   const randomIndex = Math.floor(Math.random() * items.length);
   return items[randomIndex];
 }
-
-document.getElementById('languageSelect').addEventListener('change', function () {
-  currentLanguage = this.value;
-  updateLanguage();
-});
-
-function updateLanguage() {
-  const selectedLanguage = document.getElementById('languageSelect').value;
-  const languageLabels = document.querySelectorAll('[data-lang]');
-  for (const label of languageLabels) {
-    const key = label.getAttribute('data-lang');
-    label.textContent = languageData[selectedLanguage][key];
-  }
-}

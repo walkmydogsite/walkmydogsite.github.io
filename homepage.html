@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>What to Wear | Homepage</title>
+        <link rel="stylesheet" href="assets/style.css">
+        <!-- PHOSPHORICONS -->
+	    <script src="https://unpkg.com/phosphor-icons"></script>
+    </head>
+<body id="homepage">
+    <header>
+        <div class="banner"></div>
+        <img src="assets/images/dog.png" alt="profile-pic">
+    </header>
+
+    <div class="section">
+        <div class="spacer"></div>
+        <h1>Te ayudamos a elegir... 👖</h1>
+        <h3>Vestimenta</h3>
+        <select id="formalitySelect">
+            <option value="comfort">Comfort</option>
+            <option value="casual">Casual</option>
+            <option value="semi-formal">Semi-formal</option>
+            <option value="formal">Formal</option>
+        </select>
+        <div class="double">
+            <h3>Sexo</h3>
+            <select id="genderSelect">
+                <option value="male">Femenino</option>
+                <option value="female">Masculino</option>
+            </select>
+            <h3>Edad</h3>
+            <select id="genderSelect">
+                <option value="kid">Infantil</option>
+                <option value="teen">Adolescente</option>
+                <option value="young">Joven</option>
+                <option value="adult">Adulto</option>
+                <option value="old">Anciano</option>
+            </select>
+        </div>
+        <h3>Ciudad</h3>
+        <select id="cityInput">
+            <option value="Montevideo">Montevideo</option>
+            <option value="Maldonado">Maldonado</option>
+            <option value="Canelones">Canelones</option>
+        </select>
+        <button class="btn1" onclick="getWeather()">Sugerencia</button>
+        <p id="weatherConditions" data-lang="currentWeatherConditions"></p>
+        <p id="clothingSuggestion" data-lang="suggestionIntro"></p>
+        <div class="spacer"></div>
+    </div>
+
+    <footer>
+        <a href="#"><i class="ph ph-coat-hanger"></i></a>
+        <a href="#"><i class="ph ph-magnifying-glass"></i></a>
+        <a href="#"><i class="ph ph-house"></i></a>
+        <a href="#"><i class="ph ph-users-three"></i></a>
+        <a href="#"><i class="ph ph-gear"></i></a>
+    </footer>
+
+    <script src="assets/script.js"></script>
+</body>
+</html>

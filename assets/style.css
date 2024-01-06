@@ -129,7 +129,7 @@ input{
     font-size: 18px;
     font-family: "Nunito", sans-serif;
     transition: all 0.3s ease;
-    color: white;
+    color: var(--dark);
 }
 input:focus {
     border-color: var(--blue);
@@ -143,9 +143,10 @@ select{
     margin: 0.5vh 0;
     padding-left: 15px;
     border-radius: 8px;
-    border: 2px solid var(--white);
+    border: 2px solid var(--light);
+    color: var(--dark);
     font-size: 18px;
-    color: white;
+    background-color: white;
     font-family: "Nunito", sans-serif;
     transition: all 0.3s ease;
 }
@@ -185,7 +186,7 @@ footer {
     height: 10vh;
     padding: auto 4vw;
     background-color: var(--blue);
-    transform: translateX(-9vw);
+    transform: translateX(-8vw);
     z-index: 10;
 }
 footer a{

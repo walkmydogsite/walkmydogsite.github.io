@@ -6,16 +6,21 @@
     <title>What to Wear | signup</title>
     <link rel="stylesheet" href="assets/style.css">
 </head>
-<body id="login">
+<body id="signup">
     <h1>Vamos a crearte una cuenta... ✏️</h1>
     <input type="text" id="username" placeholder="usuario" required>
     <input type="email" id="email" placeholder="email" required>
-    <input type="tel" id="phone-number" placeholder="celular" required>
-    <input type="number" id="age" placeholder="edad" required>
-    <input type="text" id="gender" placeholder="genero" required>
+    <h3 id="ageValue">Edad: 15</h3>
+    <input type="range" id="age" min="2" max="100" value="15" oninput="updateValue()">
+    <select id="gender">
+        <option value="male">Masculino</option>
+        <option value="female">Femenino</option>
+    </select>
     <input type="password" id="password" placeholder="contraseña" required>
-    <a href="homepage.html" class="btn1" id="signupBtn">Sign Up</a>
+    <a href="#" class="btn1" id="signupBtn">Sign Up</a>
     <a href="index.html" class="btn2">Log In</a>
+
+    <script src="assets/app.js"></script>
+
 </body>
-<script src="assets/auth.js"></script>
 </html>

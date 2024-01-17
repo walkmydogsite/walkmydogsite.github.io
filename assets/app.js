@@ -29,14 +29,14 @@ if (document.getElementById("login")) {
         const allUsers = await getUsers()
 
         if (authenticateEmail(email, allUsers)) {
-            console.log(`${email} is not a registered user.`)
+            alert(`${email} is not a registered user.`)
             window.location.href = 'signup.html'
         } else {
             console.log(`${email} is already registered.`)
             if (authenticatePassword(email, password, allUsers)) {
                 window.location.href = `homepage.html?email=${encodeURIComponent(email)}`
             } else {
-                console.log('email and password do not match')
+                alert('email and password do not match')
             }
         }
     }
@@ -96,7 +96,7 @@ else if (document.getElementById("signup")) {
                 window.location.href = `homepage.html?email=${encodeURIComponent(email)}`
             } else {
                 alert(`${email} is already registered.`)
-                window.location.href = 'login.html'
+                window.location.href = 'index.html'
             }
             
         } catch (error) {

@@ -95,7 +95,8 @@ else if (document.getElementById("signup")) {
                 console.log('User created successfully')
                 window.location.href = `homepage.html?email=${encodeURIComponent(email)}`
             } else {
-                console.log(`${email} is already registered.`)
+                alert(`${email} is already registered.`)
+                window.location.href = 'login.html'
             }
             
         } catch (error) {

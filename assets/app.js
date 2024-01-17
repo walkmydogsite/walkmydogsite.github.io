@@ -1,12 +1,21 @@
 const apiUrl = 'https://what-to-wear---server.glitch.me'
 
 // Get all users
-function getUsers() {
+async function getUsers() {
     return fetch(apiUrl + '/users')
         .then(response => response.json())
         .catch(error => {
             console.error('Error fetching users: ', error)
         })
+}
+
+// email and Password Authentication
+function authenticateEmail(email, users) {
+    return !users.some(user => user.email === email)
+}
+function authenticatePassword(email, password, users) {
+    const user = users.find(user => user.email === email)
+    return user && user.password === password
 }
 
 // Log In
@@ -30,15 +39,6 @@ if (document.getElementById("login")) {
                 console.log('email and password do not match')
             }
         }
-    }
-
-    // email and Password Authentication
-    function authenticateEmail(email, users) {
-        return !users.some(user => user.email === email)
-    }
-    function authenticatePassword(email, password, users) {
-        const user = users.find(user => user.email === email)
-        return user && user.password === password
     }
 
     loginBtn.addEventListener('click', userAuthentication)
@@ -89,6 +89,7 @@ else if (document.getElementById("signup")) {
         const password = document.getElementById("password").value
 
         try {
+            const allUsers = await getUsers()
             if (authenticateEmail(email, allUsers)) {
                 await createUser(username, email, age, gender, password)
                 console.log('User created successfully')

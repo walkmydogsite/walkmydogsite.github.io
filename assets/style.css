@@ -167,19 +167,29 @@ input[type="range"] {
 
 header .banner{
     position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
     width: 100vw;
     height: 15vh;
+    padding: 0 5vw;
+
+    color: var(--light);
     background-color: var(--blue);
     transform: translate(-12vw, -9vh);
 }
-header img{
-    position: fixed;
-    transform: translate(-10vw, -6vh);
-    width: 120px;
-    height: 120px;
-    border-radius: 100px;
-    object-fit: cover;
-    z-index: 1;
+header a{
+    text-decoration: none;
+    padding: 0;
+}
+header a i{
+    padding: 0;
+    color: var(--light);
+    font-size: 10vw;
+}
+header .nav a i:hover{
+    font-size: 12vw;
 }
 
 /* FOOTER */

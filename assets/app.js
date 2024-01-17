@@ -5,7 +5,7 @@ function getUsers() {
     return fetch(apiUrl + '/users')
         .then(response => response.json())
         .catch(error => {
-            console.error('Error fetching users:', error)
+            console.error('Error fetching users: ', error)
         })
 }
 
@@ -19,13 +19,13 @@ if (document.getElementById("login")) {
 
         const allUsers = await getUsers()
 
-        if (authenticateemail(email, allUsers)) {
+        if (authenticateEmail(email, allUsers)) {
             console.log(`${email} is not a registered user.`)
             window.location.href = 'signup.html'
         } else {
             console.log(`${email} is already registered.`)
             if (authenticatePassword(email, password, allUsers)) {
-                window.location.href = 'homepage.html'
+                window.location.href = `homepage.html?email=${encodeURIComponent(email)}`
             } else {
                 console.log('email and password do not match')
             }
@@ -33,7 +33,7 @@ if (document.getElementById("login")) {
     }
 
     // email and Password Authentication
-    function authenticateemail(email, users) {
+    function authenticateEmail(email, users) {
         return !users.some(user => user.email === email)
     }
     function authenticatePassword(email, password, users) {
@@ -47,10 +47,11 @@ if (document.getElementById("login")) {
 // Sign Up
 else if (document.getElementById("signup")) {
 
+    // Display Age
     function updateValue() {
-        const age = document.getElementById("age");
-        const ageValue = document.getElementById("ageValue");
-        ageValue.textContent = "Edad:  " + age.value;
+        const age = document.getElementById("age")
+        const ageValue = document.getElementById("ageValue")
+        ageValue.textContent = "Edad:  " + age.value
     }
 
     // Create User
@@ -79,7 +80,6 @@ else if (document.getElementById("signup")) {
     }
 
     var signupBtn = document.getElementById("signupBtn")
-
     signupBtn.addEventListener('click', async function () {
         
         const username = document.getElementById("username").value
@@ -89,14 +89,43 @@ else if (document.getElementById("signup")) {
         const password = document.getElementById("password").value
 
         try {
-            await createUser(username, email, age, gender, password)
-            console.log('User created successfully')
-            window.location.href = 'homepage.html'
+            if (authenticateEmail(email, allUsers)) {
+                await createUser(username, email, age, gender, password)
+                console.log('User created successfully')
+                window.location.href = `homepage.html?email=${encodeURIComponent(email)}`
+            } else {
+                console.log(`${email} is already registered.`)
+            }
+            
         } catch (error) {
             console.error('Error creating user:', error)
         }
     })
 
+}
+
+// Homepage
+else if (document.getElementById("homepage")) {
+
+    // Get Email from url
+    function getEmailFromURL() {
+        const urlParams = new URLSearchParams(window.location.search)
+        return urlParams.get('email')
+    }
+
+    // Get user through email
+    async function getUserByEmail(email) {
+        const response = await fetch(apiUrl + `/users/${encodeURIComponent(email)}`)
+        if (!response.ok) {
+            throw new Error('Network response was not ok')
+        }
+        const user = await response.json()
+        document.getElementById("welcome").textContent = "Hola " + user.username + "!"
+    }
+
+
+    const email = getEmailFromURL()
+    getUserByEmail(email)
 }
 
 

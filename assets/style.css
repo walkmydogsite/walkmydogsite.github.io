@@ -221,6 +221,47 @@ footer .nav a i:hover{
 }
 
 
+/* BOXES */
+
+.boxes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.boxes a {
+    text-decoration: none;
+}
+.boxes .box {
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+
+    color: var(--dark);
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+
+    width: 80vw;
+    height: 65vh;
+    margin: 5vh 0;
+    padding: 3px;
+    overflow: hidden;
+}
+.boxes .box img {
+    border-radius: 6px;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: -3vh;
+}
+.boxes .box h2{
+    margin-bottom: -5vh;
+}
+.boxes .box .btn2 {
+    width: 70vw;
+    margin: 0 auto;
+}
+
 
 
 

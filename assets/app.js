@@ -9,7 +9,7 @@ async function getUsers() {
         })
 }
 
-// email and Password Authentication
+// Email and Password Authentication
 function authenticateEmail(email, users) {
     return !users.some(user => user.email === email)
 }
@@ -22,6 +22,7 @@ function authenticatePassword(email, password, users) {
 if (document.getElementById("login")) {
     var loginBtn = document.getElementById("loginBtn")
 
+    // Check User existance
     async function userAuthentication() {
         const email = document.getElementById("email").value
         const password = document.getElementById("password").value
@@ -112,10 +113,10 @@ else if (document.getElementById("homepage")) {
     // Get Email from url
     function getEmailFromURL() {
         const urlParams = new URLSearchParams(window.location.search)
-        return urlParams.get('email')
+        return urlParams.get('email') 
     }
 
-    // Get user through email
+    // Get user through email           
     async function getUserByEmail(email) {
         const response = await fetch(apiUrl + `/users/${encodeURIComponent(email)}`)
         if (!response.ok) {
@@ -125,9 +126,14 @@ else if (document.getElementById("homepage")) {
         document.getElementById("welcome").textContent = "Hola " + user.username + "!"
     }
 
-
     const email = getEmailFromURL()
     getUserByEmail(email)
+
+    // Delete email from URL
+    const urlParams = new URLSearchParams(window.location.search)
+    urlParams.delete('email')
+    const newUrl = window.location.pathname + (urlParams.toString() ? `?${urlParams.toString()}` : '')
+    window.history.replaceState({}, '', newUrl)
 }
 
 

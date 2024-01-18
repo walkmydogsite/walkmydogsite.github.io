@@ -243,8 +243,8 @@ footer .nav a i:hover{
     box-shadow: var(--shadow);
 
     width: 80vw;
-    height: 65vh;
-    margin: 5vh 0;
+    height: 400px;
+    margin-top: 5vh;
     padding: 3px;
     overflow: hidden;
 }

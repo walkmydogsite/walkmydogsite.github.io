@@ -126,14 +126,20 @@ else if (document.getElementById("homepage")) {
         document.getElementById("welcome").textContent = "Hola " + user.username + "!"
     }
 
+    // Check if user is logged in
     const email = getEmailFromURL()
-    getUserByEmail(email)
+    if (email != null) {
+        getUserByEmail(email)
+    } else {
+        window.location.href = 'index.html'
+    }
 
     // Delete email from URL
     const urlParams = new URLSearchParams(window.location.search)
     urlParams.delete('email')
     const newUrl = window.location.pathname + (urlParams.toString() ? `?${urlParams.toString()}` : '')
     window.history.replaceState({}, '', newUrl)
+
 }
 
 
